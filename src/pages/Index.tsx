@@ -6,13 +6,13 @@ import { SearchBar } from "@/components/SearchBar";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar />
       
-      <div className="flex-1">
+      <div className="flex-1 flex flex-col">
         <Header />
         
-        <main className="pt-4 pb-8">
+        <main className="flex-1 px-4 flex flex-col justify-center">
           <ProductivitySection />
           <SearchBar />
         </main>

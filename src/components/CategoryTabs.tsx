@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const categories = [
   { id: "featured", name: "Featured" },
@@ -15,18 +16,20 @@ export const CategoryTabs = () => {
   const [activeCategory, setActiveCategory] = useState("featured");
 
   return (
-    <div className="flex flex-nowrap gap-2 my-8 overflow-x-auto pb-2 hide-scrollbar">
-      {categories.map((category) => (
-        <button
-          key={category.id}
-          className={`category-pill whitespace-nowrap ${
-            activeCategory === category.id ? "category-pill-active" : "category-pill-inactive"
-          }`}
-          onClick={() => setActiveCategory(category.id)}
-        >
-          {category.name}
-        </button>
-      ))}
-    </div>
+    <ScrollArea className="w-full my-3">
+      <div className="flex flex-nowrap gap-2 pb-2">
+        {categories.map((category) => (
+          <button
+            key={category.id}
+            className={`category-pill whitespace-nowrap ${
+              activeCategory === category.id ? "category-pill-active" : "category-pill-inactive"
+            }`}
+            onClick={() => setActiveCategory(category.id)}
+          >
+            {category.name}
+          </button>
+        ))}
+      </div>
+    </ScrollArea>
   );
 };
